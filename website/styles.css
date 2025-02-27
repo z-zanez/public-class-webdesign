@@ -4,11 +4,22 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    background-color: #f4f4f4;
+    background: 
+        linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), /* 半透明白色遮罩 */
+        url('images/logo.jpg'); /* 背景图片 */
+    /*background-image: url('images/sea.jpg'); /* 图片路径 */
+    background-size: cover; /* 覆盖整个屏幕 */
+    background-position: center; /* 居中显示 */
+    background-attachment: fixed; /* 背景图固定 */
     color: #333;
+    position: relative;
+    z-index: -1;
 }
 
 header {
+    background-image: url('images/flag.jpg'); /* 顶部背景图 */
+    background-size: cover;
+    background-position: center;
     background-color: #333;
     color: #fff;
     padding: 10px 0;
@@ -36,6 +47,14 @@ main {
 
 section {
     margin-bottom: 40px;
+}
+
+#home {
+    /*background-image: url('images/logo.jpg');*/
+    background-size: cover;
+    background-position: center;
+    padding: 50px;
+    color: #fff; /* 图片上文字需要对比色 */
 }
 
 h2 {
