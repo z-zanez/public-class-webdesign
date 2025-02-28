@@ -14,7 +14,7 @@
                 <li><a href="#home">首页</a></li>
                 <li><a href="#about">关于</a></li>
                 <li><a href="#services">服务</a></li>
- 		<li><a href="#news">新闻</a></li>
+ 		        <li><a href="#news">新闻</a></li>
                 <li><a href="#contact">联系</a></li>
             </ul>
         </nav>
@@ -61,15 +61,18 @@
             <h2>近期网络空间安全新闻</h2>
             <article>
                 <h3>微软高管邮箱被“午夜暴风雪”攻陷</h3>
-                <p><strong>2024年1月</strong>，微软披露其遭到威胁组织“午夜暴风雪”攻击，攻击者通过非生产测试租户账户获得访问权限，使用密码喷洒攻击窃取了部分高管和员工的电子邮件、文件以及部分源代码。虽然微软表示攻击未影响客户或生产系统，但事件暴露了内部安全漏洞，包括未启用的多因素认证（MFA）和过大的测试账号权限。</p>
+                <time datetime="2024-01">2024年1月</time>
+                <p>微软披露其遭到威胁组织“午夜暴风雪”攻击，攻击者通过非生产测试租户账户获得访问权限，使用密码喷洒攻击窃取了部分高管和员工的电子邮件、文件以及部分源代码。虽然微软表示攻击未影响客户或生产系统，但事件暴露了内部安全漏洞，包括未启用的多因素认证（MFA）和过大的测试账号权限。</p>
             </article>
             <article>
                 <h3>CrowdStrike更新失误致全球Windows系统崩溃</h3>
-                <p><strong>2024年7月</strong>，CrowdStrike的更新故障导致全球数百万Windows系统崩溃。更新错误触发了蓝屏死机问题，影响了850万台系统，并导致航空、银行和医疗等行业的大规模中断。此次故障造成的财务损失约为100亿美元，是历史上最严重的IT中断事件之一。</p>
+                <time datetime="2024-07">2024年7月</time>
+                <p>CrowdStrike的更新故障导致全球数百万Windows系统崩溃。更新错误触发了蓝屏死机问题，影响了850万台系统，并导致航空、银行和医疗等行业的大规模中断。此次故障造成的财务损失约为100亿美元，是历史上最严重的IT中断事件之一。</p>
             </article>
             <article>
                 <h3>黎巴嫩突发寻呼机大规模群体爆炸</h3>
-                <p><strong>2024年9月</strong>，黎巴嫩首都发生一起寻呼机爆炸事件，导致至少12人死亡、2800多人受伤。爆炸源自被远程激活的寻呼机，其锂电池中藏有爆炸物。此次事件表明，网络攻击已从数字世界扩展到物理世界，网络手段能够直接造成人员伤亡。</p>
+                <time datetime="2024-09">2024年9月</time>
+                <p>黎巴嫩首都发生一起寻呼机爆炸事件，导致至少12人死亡、2800多人受伤。爆炸源自被远程激活的寻呼机，其锂电池中藏有爆炸物。此次事件表明，网络攻击已从数字世界扩展到物理世界，网络手段能够直接造成人员伤亡。</p>
             </article>
         </section>
 
@@ -82,7 +85,7 @@
                 	<tr>
                     	    <th>主要攻击类型</th>
                     	    <th>事件数量</th>
-                    	    <th>占比</th>
+                    	    <th>占比（%）</th>
                 	</tr>
             	    </thead>
             	    <tbody>
@@ -127,7 +130,7 @@
             	    </tbody>
         	</table>
    
-        	<img src="website/images/图片1.png" alt="ENISA Logo" class="stat-logo">
+        	<img src="images/图片1.png" alt="ENISA Logo" class="stat-logo" loading="lazy">
     	    </div>
     
     	<p>数据来源：<a href="https://www.enisa.europa.eu/publications/2024-report-on-the-state-of-cybersecurity-in-the-union">ENISA 2024报告</a></p>
@@ -331,7 +334,7 @@
                 <input type="text" id="name" name="name" required>
 
                 <label for="email">邮箱:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="请输入有效的邮箱地址">
 
                 <label for="message">留言:</label>
                 <textarea id="message" name="message" required></textarea>
@@ -347,45 +350,49 @@
 
     <script src="script.js"></script>
     <script>
- 	window.onload = function() {
-            var parserDivs = document.querySelectorAll('.result-parser');
-            parserDivs.forEach(function(parserDiv) {
-            	parserDiv.style.display = 'none';
-            });
-    	};
-       document.getElementById('quizForm').addEventListener('submit', function (event) {
-    		event.preventDefault(); // 防止表单提交刷新页面
+ 	document.addEventListener('DOMContentLoaded', function () {
+        var parserDivs = document.querySelectorAll('.result-parser');
+        parserDivs.forEach(function (parserDiv) {
+            parserDiv.style.display = 'none';
+        });
+    });
+    document.getElementById('quizForm').addEventListener('submit', function (event) {
+        event.preventDefault(); // 防止表单提交刷新页面
 
-    		var score = 0;
-    		var totalQuestions = 6;
-    		var correctAnswers = {
-        	    q1: "a",
-        	    q2: "b",
-        	    q3: "b",
-        	    q4: "b",
-        	    q5: "d",
-        	    q6: "d"
-    		};
+        var score = 0;
+        var totalQuestions = 6;
+        var correctAnswers = {
+            q1: "a",
+            q2: "b",
+            q3: "b",
+            q4: "b",
+            q5: "d",
+            q6: "d"
+        };
 
-    		for (var i = 1; i <= totalQuestions; i++) {
-        	    var q = document.querySelector('input[name="q' + i + '"]:checked');
-        	    var resultDiv = document.getElementById('result' + i);
-        	    var parserDiv = document.getElementById('parser' + i);
+        for (var i = 1; i <= totalQuestions; i++) {
+            var q = document.querySelector('input[name="q' + i + '"]:checked');
+            var resultDiv = document.getElementById('result' + i);
+            var parserDiv = document.getElementById('parser' + i);
 
-        	    if (q && q.value === correctAnswers['q' + i]) {
-            		score++;
-            		resultDiv.textContent = "正确";
-           		resultDiv.classList.remove('wrong');
-            		parserDiv.style.display = 'none'; // 不显示解析
-        	    } else {
-            		resultDiv.textContent = "错误";
-            		resultDiv.classList.add('wrong');
-           		parserDiv.style.display = 'block'; // 显示解析
-        	    }
-    		}
+            if (q && q.value === correctAnswers['q' + i]) {
+                score++;
+                resultDiv.textContent = "正确";
+                resultDiv.classList.remove('wrong');
+                parserDiv.style.display = 'none'; // 不显示解析
+            } else {
+                resultDiv.textContent = "错误";
+                resultDiv.classList.add('wrong');
+            parserDiv.style.display = 'block'; // 显示解析
+            }
+        }
 
-    		alert("你的得分: " + score + " / " + totalQuestions);
-	    });
+        // 显示总分和正确率
+        var summary = document.createElement('div');
+        summary.id = 'quizSummary';
+        summary.innerHTML = `<p>你的得分: ${score} / ${totalQuestions}，正确率: ${(score / totalQuestions * 100).toFixed(2)}%</p>`;
+        document.getElementById('quiz').appendChild(summary);
+    });
     </script>
 </body>
 </html>
