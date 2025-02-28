@@ -100,3 +100,52 @@ footer {
     padding: 10px 0;
     margin-top: 40px;
 }
+
+.result {
+    margin-top: 5px;
+    font-size: 0.9em;
+    color: green; /* 正确时显示绿色 */
+}
+
+.result.wrong {
+    color: red; /* 错误时显示红色 */
+}
+
+#statistics {
+    padding: 20px;
+}
+
+.stat-container {
+    display: flex;
+    align-items: flex-start; /* 垂直对齐方式 */
+    gap: 20px; /* 图表之间的间距 */
+}
+
+.stat-container table {
+    flex: 1; /* 表格占据剩余空间 */
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.stat-container th,
+.stat-container td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.stat-container th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.stat-logo {
+    width: 600px; /* 图片宽度 */
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .stat-container {
+        flex-direction: column; /* 在小屏幕上改为垂直排列 */
+    }
+}
