@@ -61,3 +61,89 @@ document.getElementById('contactForm').addEventListener('submit', function(event
         alert('请填写所有字段。');
     }
 });
+
+
+
+// 页面搜索工具定义
+// 更新script.js中的搜索功能
+document.addEventListener('DOMContentLoaded', () => {
+    const searchToggle = document.getElementById('searchToggle');
+    const searchBox = document.querySelector('.search-box');
+    const searchInput = document.getElementById('searchInput');
+    const resultsContainer = document.getElementById('searchResults');
+
+    // 切换搜索框可见性
+    searchToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        searchBox.classList.toggle('active');
+        if (searchBox.classList.contains('active')) {
+            searchInput.focus();
+        }
+    });
+
+    // 实时搜索功能
+    searchInput.addEventListener('input', debounce(performSearch, 300));
+
+    // 提交搜索
+    document.getElementById('searchSubmit').addEventListener('click', performSearch);
+
+    function performSearch() {
+        const query = searchInput.value.trim().toLowerCase();
+        resultsContainer.innerHTML = '';
+        
+        if (!query) {
+            resultsContainer.classList.remove('active');
+            return;
+        }
+
+        // 遍历所有可搜索内容
+        const searchables = document.querySelectorAll('[data-searchable]');
+        const matches = [];
+        
+        searchables.forEach(section => {
+            const text = section.textContent.toLowerCase();
+            if (text.includes(query)) {
+                const title = section.querySelector('h2, h3').textContent;
+                matches.push({
+                    title,
+                    id: section.id,
+                    content: text.substring(0, 150) + '...'
+                });
+            }
+        });
+
+        // 显示结果
+        if (matches.length) {
+            matches.forEach(match => {
+                const item = document.createElement('div');
+                item.className = 'search-result-item';
+                item.innerHTML = `
+                    <h4><a href="#${match.id}">${match.title}</a></h4>
+                    <p>${match.content}</p>
+                `;
+                resultsContainer.appendChild(item);
+            });
+            resultsContainer.classList.add('active');
+        } else {
+            resultsContainer.innerHTML = '<div class="search-result-item">未找到相关结果</div>';
+            resultsContainer.classList.add('active');
+        }
+    }
+
+    // 防抖函数优化性能
+    function debounce(func, wait) {
+        let timeout;
+        return function(...args) {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func.apply(this, args), wait);
+        };
+    }
+
+    // 点击外部关闭搜索结果
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.search-container')) {
+            resultsContainer.classList.remove('active');
+        }
+    });
+});
+
