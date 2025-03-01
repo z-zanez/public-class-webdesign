@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>我的网站</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -17,32 +18,44 @@
  		        <li><a href="#news">新闻</a></li>
                 <li><a href="#contact">联系</a></li>
             </ul>
+            <!-- 新增搜索组件 -->
+            <div class="search-container">
+                <button id="searchToggle" class="search-icon" aria-label="打开搜索">
+                    <i class="fa fa-search"></i>
+                </button>
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="搜索..." aria-label="搜索输入">
+                    <button id="searchSubmit" class="search-submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
         </nav>
     </header>
 
     <main>
-        <section id="home">
+        <section id="home" data-searchable>
             <h2>首页</h2>
             <p>欢迎来到我们的网站！我们致力于提供最先进的网络空间安全解决方案，保护您的数据和隐私。</p>
         </section>
 
-        <section id="about">
+        <section id="about" data-searchable>
             <h2>关于我们</h2>
             <p>党训班第21组，热衷于研究网络空间安全领域！</p>
         </section>
 
-	<section id="definition">
+	<section id="definition" data-searchable>
     	    <h2>网络空间安全定义</h2>
     	    <p>网络空间安全是指通过技术手段、管理措施及政策保障网络环境中的数据、信息系统及其传输的安全性、完整性和可用性。</p>
 	</section>
 
-	<section id="definition">
+	<section id="n_definition" data-searchable>
     	    <h2>网络空间“危机四伏”</h2>
     	    <p>随着数字化社会的发展，网络空间安全已成为各个领域必不可少的基础设施。无论是个人数据保护，还是国家的关键信息基础设施，网络安全问题正日益受到重视。网络攻击形式多种多样，可能威胁到个人隐私、企业机密甚至国家安全。从简单的网络钓鱼到复杂的勒索病毒、DDoS攻击，攻击者通过不断创新手段突破防线。因此，全面提升网络空间的安全防护能力已成为当务之急</p>
 	</section>
 
 
-       <section id="services">
+       <section id="services" data-searchable>
             <h2>我们的服务</h2>
             <ul>
             	<li><strong>近期新闻</strong>
@@ -57,26 +70,32 @@
             </ul>
         </section>
 
- 	<section id="news">
+ 	<section id="news" data-searchable>
             <h2>近期网络空间安全新闻</h2>
             <article>
-                <h3>微软高管邮箱被“午夜暴风雪”攻陷</h3>
-                <time datetime="2024-01">2024年1月</time>
+                <h3 class="article-title">
+                    微软高管邮箱被“午夜暴风雪”攻陷
+                    <time datetime="2024-01" class="article-time">2024年1月</time>
+                </h3>
                 <p>微软披露其遭到威胁组织“午夜暴风雪”攻击，攻击者通过非生产测试租户账户获得访问权限，使用密码喷洒攻击窃取了部分高管和员工的电子邮件、文件以及部分源代码。虽然微软表示攻击未影响客户或生产系统，但事件暴露了内部安全漏洞，包括未启用的多因素认证（MFA）和过大的测试账号权限。</p>
             </article>
             <article>
-                <h3>CrowdStrike更新失误致全球Windows系统崩溃</h3>
-                <time datetime="2024-07">2024年7月</time>
+                <h3 class="article-title">
+                    CrowdStrike更新失误致全球Windows系统崩溃
+                    <time datetime="2024-07" class="article-time">2024年7月</time>
+                </h3>
                 <p>CrowdStrike的更新故障导致全球数百万Windows系统崩溃。更新错误触发了蓝屏死机问题，影响了850万台系统，并导致航空、银行和医疗等行业的大规模中断。此次故障造成的财务损失约为100亿美元，是历史上最严重的IT中断事件之一。</p>
             </article>
             <article>
-                <h3>黎巴嫩突发寻呼机大规模群体爆炸</h3>
-                <time datetime="2024-09">2024年9月</time>
+                <h3 class="article-title">
+                    黎巴嫩突发寻呼机大规模群体爆炸
+                    <time datetime="2024-09" class="article-time">2024年9月</time>
+                </h3>
                 <p>黎巴嫩首都发生一起寻呼机爆炸事件，导致至少12人死亡、2800多人受伤。爆炸源自被远程激活的寻呼机，其锂电池中藏有爆炸物。此次事件表明，网络攻击已从数字世界扩展到物理世界，网络手段能够直接造成人员伤亡。</p>
             </article>
         </section>
 
-	<section id="statistics">
+	<section id="statistics" data-searchable>
     	    <h2>网络空间安全统计数据（2023年7月-2024年6月）</h2>
     
     	    <div class="stat-container">
@@ -136,7 +155,7 @@
     	<p>数据来源：<a href="https://www.enisa.europa.eu/publications/2024-report-on-the-state-of-cybersecurity-in-the-union">ENISA 2024报告</a></p>
 	</section>
 
-	<section id="security-measures">
+	<section id="security-measures" data-searchable>
             <h2>网络空间安全防护措施</h2>
             <ul>
             	<li><strong>强密码和密码管理：</strong>强密码是防止恶意攻击者入侵账户的第一道防线。推荐使用长度为12个字符以上，包含大小写字母、数字及特殊符号的密码。此外，定期更换密码并使用密码管理工具可以有效避免密码泄露。</li>
@@ -148,11 +167,11 @@
             </ul>
     	</section>
 
-	<section id="security-tools">
+	<section id="security-tools" data-searchable>
             <h2>网络空间安全工具</h2>
 
             <!-- 网络安全检测工具部分 -->
-            <section id="security-detection-tools">
+            <section id="security-detection-tools"  data-searchable>
                 <h3>网络安全检测工具</h3>
                 <ul>
                     <li>
@@ -167,7 +186,7 @@
             </section>
 
             <!-- 防火墙配置指南部分 -->
-            <section id="firewall-configuration">
+            <section id="firewall-configuration" data-searchable>
                 <h3>防火墙配置指南</h3>
                 <ul>
                     <li>
@@ -186,7 +205,7 @@
             </section>
 
             <!-- 数据加密工具部分 -->
-            <section id="data-encryption-tools">
+            <section id="data-encryption-tools" data-searchable>
                 <h3>数据加密工具</h3>
                 <ul>
                     <li>
@@ -200,7 +219,7 @@
                 </ul>
             </section>
         </section>
-	<section id="quiz">
+	<section id="quiz" data-searchable>
             <h2>网络安全小测试</h2>
             <form id="quizForm">
                 <!-- 问题1 -->
@@ -327,7 +346,7 @@
             </form>
         </section>
 
-        <section id="contact">
+        <section id="contact" data-searchable>
             <h2>联系我们</h2>
             <form id="contactForm">
                 <label for="name">姓名:</label>
@@ -347,6 +366,11 @@
     <footer>
         <p>&copy; 2023 我的公司. 保留所有权利。</p>
     </footer>
+
+    <div id="searchResults" class="search-results">
+        <!-- 搜索结果将在这里动态渲染 -->
+    </div>
+
 
     <script src="script.js"></script>
     <script>

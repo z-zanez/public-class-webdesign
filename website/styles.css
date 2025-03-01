@@ -51,7 +51,7 @@ section {
     margin-bottom: 40px;
 }
 
-#home, #about, #definition, #services, #news, #statistics, #security-measures, #security-tools, #quiz, #contact {
+#home, #about, #definition, #n_definition,#services, #news, #statistics, #security-measures, #security-tools, #quiz, #contact {
     max-width: 1200px; /* 设置最大宽度 */
     margin: 0 auto; /* 水平居中 */
     padding: 20px;
@@ -157,4 +157,160 @@ footer {
     .stat-container {
         flex-direction: column; /* 在小屏幕上改为垂直排列 */
     }
+}
+
+
+/* 搜索栏样式定义 */
+/* 搜索栏样式 */
+/* 添加以下CSS到styles.css */
+/* 搜索容器定位 */
+header .search-container {
+    position: absolute;
+    height: 10px; /* 与导航栏高度一致 */
+    right: 30px;
+    top: 102px;
+    /* top: 50%; */
+    transform: translateY(-50%);
+    z-index: 1000;
+    right: 20px !important;
+}
+
+/* 确保header有定位上下文 */
+header {
+    position: relative;
+}
+
+/* 搜索图标样式 */
+.search-icon {
+    background: none;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 8px;
+    transition: color 0.3s ease;
+}
+
+.search-icon:hover {
+    color: #7dafe5;
+}
+
+/* 搜索框容器 */
+.search-box {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    max-width: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+/* 展开状态 */
+.search-box.active {
+    max-width: 300px;
+    opacity: 1;
+    padding: 5px 15px;
+}
+
+/* 输入框样式 */
+#searchInput {
+    border: none;
+    background: transparent;
+    padding: 5px;
+    width: 200px;
+    outline: none;
+}
+
+/* 提交按钮 */
+.search-submit {
+    background: none;
+    border: none;
+    color: #666;
+    padding: 5px;
+    cursor: pointer;
+}
+
+/* 搜索结果样式 */
+.search-results {
+    position: fixed;
+    top: 150px;
+    right: 20px;
+    background: transparent;
+    backdrop-filter: blur(10px); /* 添加毛玻璃效果 */
+    border: 1px solid rgba(0, 0, 0, 0.1); /* 半透明边框 */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* 调整阴影透明度 */
+    max-height: 400px;
+    overflow-y: auto;
+    width: 300px;
+    z-index: 1000;
+    display: none;
+    /* 尺寸调整 */
+    /* width: 350px;
+    max-height: 60vh; 视口高度百分比 */
+    /* 滚动条美化 */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0,0,0,0.3) transparent;
+}
+
+.search-results.active {
+    display: block;
+}
+
+.search-result-item {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.search-result-item:hover {
+    background: rgba(0, 120, 255, 0.08);
+}
+
+/* 内容预览样式 */
+.search-result-item p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.4;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+
+
+/* 文章列表样式 */
+.article-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin: 0 0 0.5em 0;
+    font-size: 1.25rem;
+}
+
+.article-time {
+    color: #666;
+    font-size: 0.9em;
+    font-weight: normal;
+    margin-left: 1em;
+    white-space: nowrap;
+}
+
+/* 响应式适配 */
+@media (max-width: 768px) {
+    .article-title {
+        flex-direction: column;
+        gap: 0.3em;
+    }
+    
+    .article-time {
+        margin-left: 0;
+        color: #888;
+        font-size: 0.85em;
+    }
+}
+
+/* 悬停效果 */
+.article-title:hover .article-time {
+    color: #333;
+    transition: color 0.3s ease;
 }
