@@ -314,3 +314,279 @@ header {
     color: #333;
     transition: color 0.3s ease;
 }
+
+
+/* ========== 夜间模式 ========== */
+body.dark-mode {
+background-color: #121212; /* 更深色背景 */
+color: #fff;              /* 默认文字颜色 */
+}
+
+/* Header/Footer 背景 */
+body.dark-mode header,
+body.dark-mode footer {
+background-color: #1f1f1f;
+}
+
+/* 链接在暗色时的颜色 */
+body.dark-mode a {
+color: #62afff;
+}
+
+/* 搜索框在暗色时 */
+body.dark-mode .search-box {
+background: #1f1f1f;
+border: 1px solid #444;
+}
+
+body.dark-mode .search-box input {
+background: #333;
+color: #fff;
+border: 1px solid #555;
+}
+
+/* 导航下拉 (多语言) */
+#languageSelector {
+margin-left: 20px;
+margin-right: 10px;
+}
+
+body.dark-mode #languageSelector {
+background-color: #333;
+color: #fff;
+}
+
+/* ========== 回到顶部按钮 ========== */
+.back-to-top {
+position: fixed;
+bottom: 40px;
+right: 40px;
+font-size: 20px;
+padding: 10px;
+display: none;
+cursor: pointer;
+z-index: 999;
+background-color: #ccc;
+border: none;
+border-radius: 4px;
+}
+
+/* 夜间模式时 回到顶部按钮 */
+body.dark-mode .back-to-top {
+background-color: #444;
+color: #fff;
+}
+
+/* ========== 评论 / 点赞交互区 ========== */
+.interaction {
+margin-top: 10px;
+}
+
+.like-btn, .comment-btn {
+margin-right: 10px;
+cursor: pointer;
+border: 1px solid #ccc;
+background: #eee;
+padding: 5px 10px;
+border-radius: 4px;
+}
+
+body.dark-mode .like-btn,
+body.dark-mode .comment-btn {
+background: #333;
+color: #fff;
+border: 1px solid #555;
+}
+
+.comment-section {
+margin-top: 10px;
+border: 1px solid #ddd;
+padding: 8px;
+display: none;
+}
+
+body.dark-mode .comment-section {
+border-color: #555;
+background: #1f1f1f;
+}
+
+.comment-input {
+width: 100%;
+min-height: 60px;
+box-sizing: border-box;
+margin-bottom: 5px;
+}
+
+body.dark-mode .comment-input {
+background: #333;
+color: #fff;
+border: 1px solid #555;
+}
+
+.comment-list {
+margin-top: 5px;
+list-style-type: none;
+padding-left: 0;
+}
+
+.comment-list li {
+border-bottom: 1px solid #ccc;
+padding: 5px 0;
+}
+
+body.dark-mode .comment-list li {
+border-color: #555;
+}
+
+/* ========== 统计表格 ========== */
+.stat-container table {
+border-collapse: collapse;
+width: 100%;
+margin-top: 10px;
+}
+
+.stat-container th, .stat-container td {
+border: 1px solid #ccc;
+padding: 8px;
+}
+
+body.dark-mode .stat-container th,
+body.dark-mode .stat-container td {
+border: 1px solid #555;
+}
+
+/* 搜索结果展示 */
+.search-results {
+position: fixed;
+top: 60px;
+right: 20px;
+width: 250px;
+max-height: 300px;
+overflow-y: auto;
+background: #fff;
+border: 1px solid #ccc;
+display: none;
+padding: 10px;
+z-index: 1000;
+}
+
+.search-results ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+}
+
+.search-results li {
+margin-bottom: 5px;
+}
+
+.search-results li a {
+cursor: pointer;
+text-decoration: underline;
+color: #333;
+}
+
+/* 夜间模式下的搜索结果 */
+body.dark-mode .search-results {
+background: #1f1f1f;
+border-color: #555;
+}
+
+body.dark-mode .search-results li a {
+color: #62afff;
+}
+
+/* ========== 小测验 ========== */
+fieldset {
+margin-bottom: 15px;
+border: 1px solid #ccc;
+padding: 10px;
+}
+
+body.dark-mode fieldset {
+border: 1px solid #555;
+}
+
+.result {
+margin: 5px 0;
+font-weight: bold;
+}
+.result.wrong {
+color: #ff4d4f;
+}
+
+/* 隐藏解析的初始状态 */
+.result-parser {
+background: #f2f2f2;
+padding: 5px;
+border-radius: 4px;
+margin-top: 5px;
+border: 1px solid #ccc;
+}
+
+/* 夜间模式解析背景 */
+body.dark-mode .result-parser {
+background: #333;
+border-color: #555;
+}
+
+/* 提交答案按钮 */
+#quizForm button {
+cursor: pointer;
+padding: 8px 12px;
+background: #4178be;
+color: #fff;
+border: none;
+border-radius: 4px;
+}
+
+body.dark-mode #quizForm button {
+background: #555;
+color: #fff;
+}
+
+/* -------------- 表单 -------------- */
+#contactForm label {
+display: block;
+margin-top: 10px;
+margin-bottom: 5px;
+}
+
+#contactForm input[type="text"],
+#contactForm input[type="email"],
+#contactForm textarea {
+width: 100%;
+max-width: 400px;
+padding: 8px;
+box-sizing: border-box;
+margin-bottom: 10px;
+border: 1px solid #ccc;
+}
+
+body.dark-mode #contactForm input[type="text"],
+body.dark-mode #contactForm input[type="email"],
+body.dark-mode #contactForm textarea {
+background: #333;
+color: #fff;
+border: 1px solid #555;
+}
+
+#contactForm button {
+padding: 8px 16px;
+background: #4178be;
+color: #fff;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+
+body.dark-mode #contactForm button {
+background: #555;
+}
+
+/* -------------- 页脚 -------------- */
+footer p {
+margin: 0;
+}
+
+/* ========== 可以根据需要进一步微调 ========== */
